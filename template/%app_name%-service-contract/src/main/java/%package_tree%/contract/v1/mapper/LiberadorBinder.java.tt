@@ -1,0 +1,22 @@
+package <%= base_package %>.contract.v1.mapper;
+
+
+import <%= base_package %>.contract.v1.model.<%= app_name %>Contract;
+import <%= base_package %>.model.<%= app_name %>Model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class <%= app_name %>Binder {
+
+    public static <%= app_name %>Contract bindFromModel(<%= app_name %>Model <%= app_name %>Model){
+        return new <%= app_name %>Contract();
+    }
+
+    public static List<<%= app_name %>Contract> bindFromModel(List<<%= app_name %>Model> liberadores){
+        List<<%= app_name %>Contract> contratos = new ArrayList<>();
+        contratos.add(new <%= app_name %>Contract());
+        return contratos;
+    }
+
+}

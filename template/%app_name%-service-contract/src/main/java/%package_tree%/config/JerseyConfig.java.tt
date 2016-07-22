@@ -1,0 +1,18 @@
+package <%= base_package %>.config;
+
+import br.com.dimed.arch.jersey.DefaulJerseyConfig;
+import <%= base_package %>.contract.v1.RestEndpoint;
+import org.springframework.stereotype.Component;
+
+import javax.ws.rs.ApplicationPath;
+
+@Component
+@ApplicationPath("<%= app_name %>")
+public class JerseyConfig  extends DefaulJerseyConfig {
+
+    public JerseyConfig() {
+        super();
+        register(RestEndpoint.class);
+    }
+
+}

@@ -1,0 +1,7 @@
+apply plugin: 'spring-boot'
+
+dependencies {
+    compile project(":<%= app_name %>-service-contract")
+    compile(dimedServicesDependencies.app)
+}
+

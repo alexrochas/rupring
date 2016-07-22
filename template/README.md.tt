@@ -1,0 +1,10 @@
+#<%= app_name %>-service
+
+Consultar alçada do funcionário para desconto
+=====================
+
+**URL:**  http://localhost:9019/<%= app_name %>/v1/ <br />
+**Response Body:**
+```
+Hellor World.
+```

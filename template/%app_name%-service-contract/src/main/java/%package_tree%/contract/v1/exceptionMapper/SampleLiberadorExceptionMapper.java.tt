@@ -1,0 +1,19 @@
+package <%= base_package %>.contract.v1.exceptionMapper;
+
+import <%= base_package %>.exception.SampleLiberadorException;
+
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.ExceptionMapper;
+
+public class SampleLiberadorExceptionMapper implements ExceptionMapper<SampleLiberadorException>{
+
+    @Override
+    public Response toResponse(SampleLiberadorException exception) {
+        return Response.status(Response.Status.BAD_REQUEST).
+                entity(exception.getMessage()).
+                type(MediaType.TEXT_PLAIN).
+                build();
+    }
+
+}

@@ -1,0 +1,15 @@
+package <%= base_package %>.impl;
+
+import <%= base_package %>.database.LiberadorData;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ImplModule {
+
+    @Bean
+    public <%= app_name %>Service <%= app_name %>Service(<%= app_name %>Data <%= app_name %>Data){
+        return new <%= app_name %>Service(<%= app_name %>Data);
+    }
+
+}

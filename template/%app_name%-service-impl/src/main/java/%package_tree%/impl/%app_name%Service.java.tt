@@ -1,0 +1,51 @@
+package br.com.dimed.liberador.impl;
+
+import br.com.dimed.liberador.database.LiberadorData;
+import br.com.dimed.liberador.model.Copyable;
+import br.com.dimed.liberador.model.LiberadorModel;
+import br.com.dimed.liberador.model.ValidaAlcadaModel;
+import br.com.dimed.liberador.model.ValidaLiberadorModel;
+import com.google.common.base.Suppliers;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.IllegalFormatException;
+import java.util.List;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+
+public class LiberadorService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(LiberadorService.class);
+    private LiberadorData liberadorData;
+
+    public LiberadorService(LiberadorData liberadorData) {
+        this.liberadorData = liberadorData;
+    }
+
+    public List<LiberadorModel> service(){
+        List<LiberadorModel> liberadores = new ArrayList<>();
+        return liberadores;
+    }
+
+    public BigDecimal consultarAlcadaDisponivel(ValidaAlcadaModel validaAlcadaModel){
+        liberadorData.validaAlcada(validaAlcadaModel);
+        return validaAlcadaModel.getAlcadaDisponivel();
+    }
+
+    public ValidaLiberadorModel consultaValidador(ValidaLiberadorModel liberadorModel) {
+        LOGGER.debug(String.format("Accessing ValidaLiberadorModel#consultaValidador with %s", liberadorModel));
+        return Stream.of(liberadorModel)
+                .map(ValidaLiberadorModel::copy)
+                .map(l -> {
+                    liberadorData.validaLiberador(l);
+                    return l;
+                })
+                .findFirst()
+                .orElseThrow(IllegalStateException::new);
+    }
+}

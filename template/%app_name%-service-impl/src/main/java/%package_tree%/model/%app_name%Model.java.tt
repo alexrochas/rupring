@@ -1,0 +1,6 @@
+package <%= base_package %>.model;
+
+
+public class <%= class_name %>Model {
+
+}

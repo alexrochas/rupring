@@ -1,0 +1,1 @@
+include "<%= app_name %>-service-app", "<%= app_name %>-service-contract", "<%= app_name %>-service-impl"
