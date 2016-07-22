@@ -10,7 +10,7 @@ class RupringGenerator < Thor::Group
   end
 
   def app_name
-    'spring-boot'
+    'test_app'
   end
 
   def base_package
